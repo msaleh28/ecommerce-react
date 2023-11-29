@@ -11,6 +11,7 @@ import {
   PRODUCT_LIST_SUCCESS,
 } from "../Constants/ProductConstants";
 import { logout } from "./userActions";
+import { URL } from "../Url";
 
 // PRODUCT LIST
 export const listProduct =
@@ -19,7 +20,7 @@ export const listProduct =
     try {
       dispatch({ type: PRODUCT_LIST_REQUEST });
       const { data } = await axios.get(
-        `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+        `${URL}/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (error) {
@@ -37,7 +38,7 @@ export const listProduct =
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(`${URL}/api/products/${id}`);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -67,7 +68,7 @@ export const createProductReview =
         },
       };
 
-      await axios.post(`/api/products/${productId}/review`, review, config);
+      await axios.post(`${URL}/api/products/${productId}/review`, review, config);
       dispatch({ type: PRODUCT_CREATE_REVIEW_SUCCESS });
     } catch (error) {
       const message =

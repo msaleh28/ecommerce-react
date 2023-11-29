@@ -2,7 +2,7 @@
   "name": "admin-dashboard",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://localhost:5000",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
@@ -14,7 +14,7 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.1",
     "react-toastify": "^8.1.0",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "set PORT=4000 && react-scripts start",
-    "build": "react-scripts build",
+    "build": "PORT=4000 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

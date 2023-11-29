@@ -32,10 +32,10 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 d-flex align-items-center display-none">
-              <p>+255 768 356 890</p>
-              <p>info@zpunet.com</p>
+              <p>(555) 555-5555</p>
+              <p>sandandsilk@gmail.com</p>
             </div>
-            <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex align-items-center">
+            {/* <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex align-items-center">
               <Link to="">
                 <i className="fab fa-facebook-f"></i>
               </Link>
@@ -51,7 +51,7 @@ const Header = () => {
               <Link to="">
                 <i className="fab fa-pinterest-p"></i>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ const Header = () => {
               <div className="row ">
                 <div className="col-6 d-flex align-items-center">
                   <Link className="navbar-brand" to="/">
-                    <img alt="logo" src="/images/logo.png" />
+                    <img alt="logo" src="/images/logo.png"/>
                   </Link>
                 </div>
                 <div className="col-6 d-flex align-items-center justify-content-end Login-Register">
