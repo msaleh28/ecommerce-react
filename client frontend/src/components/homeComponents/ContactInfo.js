@@ -10,7 +10,7 @@ const ContactInfo = () => {
               <i className="fas fa-phone-alt"></i>
             </div>
             <h5>Contact Us </h5>
-            <p>sandandsilk@gmail.com</p>
+            <p>silkandsandapparel@gmail.com</p>
           </div>
         </div>
         <div className="col-12 col-md-4 contact-Box">

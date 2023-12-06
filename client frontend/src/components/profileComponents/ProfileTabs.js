@@ -38,11 +38,23 @@ const ProfileTabs = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     // Password match
+    const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
     if (password !== confirmPassword) {
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.error("Password does not match", Toastobjects);
+        toastId.current = toast.error("Passwords do not match", Toastobjects);
       }
-    } else {
+    }
+    else if (password === "") {
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error("Password cannot be empty", Toastobjects);
+      }
+    }
+    else if (!regExp.test(password)) {
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error("Password must be 8 characters long with at least one lowercase, one uppercase, and one digit.", Toastobjects);
+      }
+    }
+     else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }));
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.success("Profile Updated", Toastobjects);

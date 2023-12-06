@@ -33,7 +33,7 @@ const Header = () => {
           <div className="row">
             <div className="col-md-6 d-flex align-items-center display-none">
               <p>(555) 555-5555</p>
-              <p>sandandsilk@gmail.com</p>
+              <p>silkandsandapparel@gmail.com</p>
             </div>
             {/* <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex align-items-center">
               <Link to="">
@@ -141,11 +141,55 @@ const Header = () => {
           {/* PC HEADER */}
           <div className="pc-header">
             <div className="row">
-              <div className="col-md-3 col-4 d-flex align-items-center">
-                <Link className="navbar-brand" to="/">
-                  <img alt="logo" src="/images/logo.png" />
-                </Link>
-              </div>
+            <div className="col-md-4 d-flex flex-row align-items-center justify-content-end Login-Register">
+                
+                  <div className="btn-group">
+                    <button
+                      type="button"
+                      className="name-button dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Men
+                    </button>
+                    <div className="dropdown-menu">
+                      <Link className="dropdown-item" to="/">
+                        Hoodies
+                      </Link>
+                    </div>
+                    <button
+                      type="button"
+                      className="name-button dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Women
+                    </button>
+                    <div className="dropdown-menu">
+                      <Link className="dropdown-item" to="/">
+                        Hoodies
+                      </Link>
+                    </div>
+                    <button
+                      type="button"
+                      className="name-button dropdown-toggle"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Accessories
+                    </button>
+                    <div className="dropdown-menu">
+                      <Link className="dropdown-item" to="/">
+                        Hoodies
+                      </Link>
+                    </div>
+                  </div>
+                  </div>
+              
+              {/* SEARCH BAR
               <div className="col-md-6 col-8 d-flex align-items-center">
                 <form onSubmit={submitHandler} className="input-group">
                   <input
@@ -158,8 +202,13 @@ const Header = () => {
                     search
                   </button>
                 </form>
+              </div> */}
+              <div className="col-md-3 col-8 d-flex justify-content-end">
+                <Link className="navbar-brand" to="/">
+                  <img alt="logo" src="/images/logo.png" style={{height: 100, width: 130}}/>
+                </Link>
               </div>
-              <div className="col-md-3 d-flex align-items-center justify-content-end Login-Register">
+              <div className="col-md-4 d-flex align-items-center justify-content-end Login-Register">
                 {userInfo ? (
                   <div className="btn-group">
                     <button

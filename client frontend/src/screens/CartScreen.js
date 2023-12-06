@@ -101,7 +101,7 @@ const CartScreen = ({ match, location, history }) => {
             <hr />
             <div className="cart-buttons d-flex align-items-center row">
               <Link to="/" className="col-md-6 ">
-                <button>Continue To Shopping</button>
+                <button>Continue Shopping</button>
               </Link>
               {total > 0 && (
                 <div className="col-md-6 d-flex justify-content-md-end mt-3 mt-md-0">
