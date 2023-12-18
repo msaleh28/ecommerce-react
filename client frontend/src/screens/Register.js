@@ -7,8 +7,9 @@ import { register } from "../Redux/Actions/userActions";
 import Header from "./../components/Header";
 import Toast from "../components/LoadingError/Toast";
 import { toast } from "react-toastify";
+import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
 
-const Register = ({ location, history }) => {
+const Register = () => {
   window.scrollTo(0, 0);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,8 +24,12 @@ const Register = ({ location, history }) => {
     autoClose: 2000,
   };
 
+  const [searchParams, setSearchParams] = useSearchParams()
+  const {location} = useLocation();
+  console.log(`useLocation: ${location}`);
   const dispatch = useDispatch();
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const history = useNavigate();
+  const redirect = location?.search ? location?.search.split("=")[1] : "/";
 
   const userRegister = useSelector((state) => state.userRegister);
   const { error, loading, userInfo } = userRegister;
@@ -35,7 +40,7 @@ const Register = ({ location, history }) => {
     }
   }, [userInfo, history, redirect]);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
     if (password !== confirmPassword) {
@@ -54,7 +59,35 @@ const Register = ({ location, history }) => {
       }
     }
     else {
-      dispatch(register(name, email, password));
+      console.log("hi");
+      try {
+      const registerPromise = dispatch(register(name, email, password));
+      console.log(`dispatch(register()) : ${registerPromise}`);
+      history(`/pending`);
+      // registerPromise.then((result) => {
+      //   console.log("Registration result:", result);
+      //   history.push(`/pending`)
+      //   // if(result) {
+      //   // if (result.success) {
+      //   //   if (!toast.isActive(toastId.current)) {
+      //   //     toastId.current = toast.success(`Verification email sent to ${email}`, Toastobjects);
+      //   //   }
+      //   // }
+      //   // else {
+      //   //   // Registration failed, handle accordingly
+      //   //   console.error('Registration failed:', result.error);
+      //   //   // You might want to show an error message to the user
+      //   // }
+      //   // }
+      // })
+      }
+      catch (error) {
+        console.log(error);
+      }
+      // if (!toast.isActive(toastId.current)) {
+      //   toastId.current = toast.success(`Verification email sent to ${email}`, Toastobjects);
+      // }
+      // history.push('/');
     }
     
   };
@@ -98,7 +131,7 @@ const Register = ({ location, history }) => {
 
           <button type="submit">Register</button>
           <p>
-            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
+            <Link to="/login">
               I Have Account <strong>Login</strong>
             </Link>
           </p>

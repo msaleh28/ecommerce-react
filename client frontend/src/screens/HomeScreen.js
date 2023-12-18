@@ -4,11 +4,13 @@ import ShopSection from "./../components/homeComponents/ShopSection";
 import ContactInfo from "./../components/homeComponents/ContactInfo";
 import CalltoActionSection from "./../components/homeComponents/CalltoActionSection";
 import Footer from "./../components/Footer";
+import {useParams} from "react-router-dom";
 
 const HomeScreen = ({ match }) => {
   window.scrollTo(0, 0);
-  const keyword = match.params.keyword;
-  const pagenumber = match.params.pagenumber;
+  // const keyword = match.params.keyword;
+  // const pagenumber = match.params.pagenumber;
+  const {keyword, pagenumber} = useParams();
   return (
     <div>
       <Header />

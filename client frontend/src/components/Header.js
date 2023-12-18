@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/Actions/userActions";
 
 const Header = () => {
   const [keyword, setKeyword] = useState();
   const dispatch = useDispatch();
-  let history = useHistory();
+  let history = useNavigate();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
